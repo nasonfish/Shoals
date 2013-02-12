@@ -21,7 +21,11 @@ class Index_App extends Module {
 	 * @access public
 	 */
 	public function view(){
+		if(!user()->isLoggedIn()){
+			template()->setPage('welcome');
+		}
 		template()->display();
+//		user()->
 	}
 }
 ?>

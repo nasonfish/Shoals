@@ -9,7 +9,7 @@
  */
 
 /**
- * Resource object for Javascript files
+ * Resource object for CSS files
  *
  * @author botskonet
  */

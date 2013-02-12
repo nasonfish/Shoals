@@ -1,11 +1,11 @@
-Logging has been activated at 2013-01-20 22:40:55.037221.
+Logging has been activated at 2013-02-11 05:54:53.884555.
 
 ++======================================================++
 ++  Constants
 ++======================================================++
 Constant LOADING_SECTION was set to a value of: App
 Constant DS was set to a value of: /
-Constant EXECUTION_START was set to a value of: 0.03722200 1358721655
+Constant EXECUTION_START was set to a value of: 0.88455500 1360562093
 Constant BASE_PATH was set to a value of: /home/nasonfish/site
 Constant SYSTEM_PATH was set to a value of: /home/nasonfish/site/system
 Constant APPLICATION_PATH was set to a value of: /home/nasonfish/site
@@ -69,7 +69,7 @@ Config date_format was set to a value of: H:i:s d-M-Y T
 Config currency_format was set to a value of: %n
 Config currency_locale was set to a value of: en_US
 Config enable_authentication_support was set to a value of: 1
-Config authentication_cookie_expires was set to a value of: 1361313655
+Config authentication_cookie_expires was set to a value of: 1363154093
 Config require_form_token_auth was set to a value of:
 Config sml_message_html was set to a value of: <p class="%2$s">%1$s</p>
 Config sml_message_class_success was set to a value of: success
@@ -135,11 +135,7 @@ Library Class Preferences was loaded.
 ++======================================================++
 ++  Session Data
 ++======================================================++
-Session_id: 4ei8gel5av5du1pq7f1mfrgkc4
-$_SESSION['post-login_redirect'] = http://nasonfish.com
-$_SESSION['message_log'] = a:1:{i:0;a:2:{s:7:"message";s:59:"Your username and password did not match. Please try again.";s:5:"class";s:5:"error";}}
-$_SESSION['unread_message_flag'] =
-$_SESSION['referring_page'] = http://nasonfish.com/users/login/
+Session_id: 9a57kg4t95452ovf53sl6sbcr2
 $_SESSION['authenticated'] = 1
 $_SESSION['authentication_key'] = 792f012225e58f326aaa4e1054ca2a1682d07851
 $_SESSION['domain_key'] = 93c3cbbe2b92498db5634fbad3b4e0205eb3753a
@@ -147,8 +143,8 @@ $_SESSION['email'] = nasonfish@gmail.com
 $_SESSION['username'] = nasonfish
 $_SESSION['first_name'] = Daniel
 $_SESSION['last_name'] = Barnes
-$_SESSION['latest_login'] = 2013-01-20 22:40:54
-$_SESSION['last_login'] = 2013-01-01 00:30:27
+$_SESSION['latest_login'] = 2013-02-11 05:47:07
+$_SESSION['last_login'] = 2013-02-06 20:27:24
 $_SESSION['user_id'] = 1
 $_SESSION['first_login'] =
 $_SESSION['settings'] = a:0:{}
@@ -170,11 +166,11 @@ $_SERVER['REDIRECT_STATUS'] = 200
 $_SERVER['HTTP_HOST'] = nasonfish.com
 $_SERVER['HTTP_CONNECTION'] = keep-alive
 $_SERVER['HTTP_ACCEPT'] = */*
-$_SERVER['HTTP_USER_AGENT'] = Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1312.52 Safari/537.17
+$_SERVER['HTTP_USER_AGENT'] = Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1312.57 Safari/537.17
 $_SERVER['HTTP_ACCEPT_ENCODING'] = gzip,deflate,sdch
 $_SERVER['HTTP_ACCEPT_LANGUAGE'] = en-US,en;q=0.8
 $_SERVER['HTTP_ACCEPT_CHARSET'] = ISO-8859-1,utf-8;q=0.7,*;q=0.3
-$_SERVER['HTTP_COOKIE'] = __cfduid=dd8d47e6f0f4459dc3c7de0906dd660a21358206834; PHPSESSID=4ei8gel5av5du1pq7f1mfrgkc4; authentication_key=792f012225e58f326aaa4e1054ca2a1682d07851; user_id=1
+$_SERVER['HTTP_COOKIE'] = __cfduid=dd8d47e6f0f4459dc3c7de0906dd660a21358206834; 8080-SessionId=a6053a540f885110cd88a5a36ba6617771ad203b1245a63634b3ceb6db31256d; PHPSESSID=9a57kg4t95452ovf53sl6sbcr2; authentication_key=792f012225e58f326aaa4e1054ca2a1682d07851; user_id=1
 $_SERVER['PATH'] = /sbin:/usr/sbin:/bin:/usr/bin
 $_SERVER['SERVER_SIGNATURE'] = <address>Apache/2.2.15 (CentOS) Server at nasonfish.com Port 80</address>
 $_SERVER['SERVER_SOFTWARE'] = Apache/2.2.15 (CentOS)
@@ -185,7 +181,7 @@ $_SERVER['REMOTE_ADDR'] = 75.71.106.4
 $_SERVER['DOCUMENT_ROOT'] = /home/nasonfish/site/
 $_SERVER['SERVER_ADMIN'] = nasonfish@gmail.com
 $_SERVER['SCRIPT_FILENAME'] = /home/nasonfish/site/app/webroot/index.php
-$_SERVER['REMOTE_PORT'] = 61765
+$_SERVER['REMOTE_PORT'] = 50396
 $_SERVER['REDIRECT_QUERY_STRING'] = redirected=favicon.ico
 $_SERVER['REDIRECT_URL'] = /app/webroot/favicon.ico
 $_SERVER['GATEWAY_INTERFACE'] = CGI/1.1
@@ -195,7 +191,7 @@ $_SERVER['QUERY_STRING'] = redirected=favicon.ico
 $_SERVER['REQUEST_URI'] = /favicon.ico
 $_SERVER['SCRIPT_NAME'] = /app/webroot/index.php
 $_SERVER['PHP_SELF'] = /app/webroot/index.php
-$_SERVER['REQUEST_TIME'] = 1358721655
+$_SERVER['REQUEST_TIME'] = 1360562093
 
 ++======================================================++
 ++  FILES Data
@@ -217,9 +213,9 @@ Router::fullUrl set to: http://nasonfish.com/favicon.ico
 Installed checks returned true
 Found user config file.
 Database connection is up and running.
-No target application set for Index module, IGNORING.
-Loading Module: Index_App
-Calling module hooks for: Index_App
+No target application set for Shoal module, IGNORING.
+Loading Module: Shoal_App
+Calling module hooks for: Shoal_App
 SELECT config.* FROM config WHERE user_id = "1" AND LEFT(config_key, 4) = "sort"  ORDER BY config.id ASC
 SELECT user_group_link.* FROM user_group_link WHERE user_id = "1" AND group_id = "1"  ORDER BY user_group_link.id ASC
 Seeking module language library /home/nasonfish/site/modules/Users/language/en_US.php
@@ -231,5 +227,5 @@ Including interface language library /home/nasonfish/site/app/language/en_US.php
 Seeking module language library /home/nasonfish/site/modules/Index/language/en_US.php
 Including module language library /home/nasonfish/site/modules/Index/language/en_US.php
 Looking for Module: Index_App->favicon.ico
-Method doesn't exist in module. Index_App->favicon.ico
+Module not loaded or doesn't exist. Index_App
 Including layout /home/nasonfish/site/app/layouts/404.tpl.php

@@ -20,8 +20,28 @@ class Shoal_App extends Module {
 	 * Loads our default dashboard screen
 	 * @access public
 	 */
-	public function view(){
-		template()->display();
+	public function view($id = false){
+		if($id){
+			$this->viewShoal($id);
+		} else {
+		if(user()->isLoggedIn()){
+			$data = array();
+			$model = model()->open('users');
+			$model->select('shoals');
+			$model->whereLike('username', session()->getUsername('username'));
+			$model->orderBy('id', 'DESC');
+			$data['shoals'] = $model->results();
+			template()->display($data);
+		} else {
+			router()->redirect("index/view");
+		}
+	}
+	}
+	
+	public function viewShoal($id){
+		template()->setPage("viewShoal");
+		// Stuff
+		template()->display($data);
 	}
 	
 	/**

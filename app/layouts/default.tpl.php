@@ -8,54 +8,17 @@
 	<?php $this->add_resource( new Aspen_Javascript('http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js') ); ?>
 	<?php $this->loadModuleHeader(); ?>
     <meta charset="utf-8">
-    <title>Template &middot; Bootstrap</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
 	<?php require_once('../webroot/lib/gradient.php'); ?>
 	<style>
-	body<?= Background::getBackground("#2076E0", "#8BADE0", "#FC5BC9", Direction::Bottom_Left); ?>
+	body<?= Background::getBackground("#2076E0", "#8BADE0", "#FC5BC9", Direction::Top_Left); ?>
 	</style>
 	
     <!-- Le styles -->
     <link href="/css/bootstrap.css" rel="stylesheet">
-    <style type="text/css">
-      body {
-        padding-top: 20px;
-        padding-bottom: 40px;
-      }
-
-      /* Custom container */
-      .container-narrow {
-        margin: 0 auto;
-        max-width: 700px;
-      }
-      .container-narrow > hr {
-        margin: 30px 0;
-      }
-
-      /* Main marketing message and sign up button */
-      .jumbotron {
-        margin: 60px 0;
-        text-align: center;
-      }
-      .jumbotron h1 {
-        font-size: 72px;
-        line-height: 1;
-      }
-      .jumbotron .btn {
-        font-size: 21px;
-        padding: 14px 24px;
-      }
-
-      /* Supporting marketing content */
-      .marketing {
-        margin: 60px 0;
-      }
-      .marketing p + h4 {
-        margin-top: 28px;
-      }
-    </style>
+    <link href="/css/styles.css" rel="stylesheet">
     <link href="/css/bootstrap-responsive.css" rel="stylesheet">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -72,31 +35,53 @@
   </head>
 
   <body>
-	  <div class="span7">
-	  <div class="alert alert-info">
+	  <div class="row-fluid">
+	  
     <div class="container-narrow alert alert-success">
       <div class="masthead">
         <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="/">Home</a></li>
+		  <?php if (!user()->isLoggedIn()):?>
+			<li><a href="/users/login/">Log in</a></li>
+			<li><a href="/users/signup/">Sign up!</a></li>
+		  <?php else: ?>
+			<li><a href="/shoal/">View my shoals</a></li>
+			<li><a href="/shoal/create/">Create a shoal</a></li>
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#"><?= session()->getUsername('username') ?>  <i class="caret"></i></a>
+				<ul class="dropdown-menu">
+					<li><a href="/users/logout/"><i class="icon-off"></i> Log Out</a></li>
+					<li><a href="/users/settings/"><i class="icon-wrench"></i> Your Settings</a></li>
+<!--				<li><a href="#"><i class="icon-trash"></i> Delete</a></li>
+					<li><a href="#"><i class="icon-ban-circle"></i> Ban</a></li>
+					<li class="divider"></li>
+					<li><a href="#"><i class="i"></i> Make admin</a></li> -->
+				</ul>
+			</li>
+			
+		  <?php endif; ?>
         </ul>
         <h2 class="muted">pufferfi.sh</h2>
-      </div>
-	</div>
-		  <div class="span6">
-	<?php $this->page(); ?>
-		</div>
 	  </div>
+      </div>
+	  </div>
+	  <div class="row-fluid" style="padding-top:10px">
+		<div class="alert alert-info span8 offset2" style="padding-top:10px"> 
+		
+		  <?php $this->page(); ?>
 	</div>
-	<div class="footer span6 offset3">
+	  </div>
+		 
+	  <div class="row-fluid">
+		  <div class="footer span6 offset3">
 		<div class="alert alert-success" style="padding-top:10px;">
 			<?= $this->htmlHide(VERSION_COMPLETE); ?>
 			<p><?= text('copyright', VERSION); ?></p>
 			<?php $this->loadModuleFooter(); ?>
-			<p style="font-size:14px">Created by nasonfish and puffrfish using Aspen Framework.</p>
+			<p style="font-size:14px; ">Created by nasonfish <!--and puffrfish -->using Aspen Framework.</p>
 			<p><a href="http://github.com/botskonet/aspen-framework/"><img src="/img/aspen.png" alt="Aspen Framework"  width=128 height=32></a></p>
 		</div>
+	</div>
 	</div>
 		  
 	

@@ -3,22 +3,22 @@
 	<hr>
 	<div class="container-fluid">
 		<?php
-			if($shoals){
+			if($shoals):
 				foreach($shoals as $shoal):
 					?>
 					<div class="span9">
-						<p class="muted"><?=$shoal->id()?></p>
+						<p class="muted"><?=$shoal['id']?></p>
 						<div class="span8">
-							<h4><?=$shoal->name()?></h4>
+							<h4><a href="/shoal/view/<?=$shoal['id'] ?>"><?=$shoal['name']?></a></h4>
 							<div class="pull-right">
-								<p>Owner: <?=$shoal->owner()?></p>
+								<p>Owner: <?=$shoal['owner']?></p>
 							</div>
-							<p><?=$shoal->text()?></p>
+							<p><?=$shoal['description']?></p>
 						</div>
 					</div>
 					<?php
 				endforeach;
-			}
+			endif;
 		?>
 	</div>
 </body>

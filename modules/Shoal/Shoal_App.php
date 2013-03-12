@@ -45,11 +45,10 @@ class Shoal_App extends Module {
 		$shoal->where('id', $id);
 		$shoal->limit(1);
 		
-		include(MODULES_PATH . DS . 'Shoal' . DS . 'libs' . DS . 'Plugins.php');
+		require(MODULES_PATH . DS . 'Shoal' . DS . 'libs' . DS . 'Plugins.php');
 		
 		$plugins = new Plugins;
 		$plugins = $plugins->getPlugins();
-		
 		$usedPlugins = array();
 		$i = 0;
 		$pluginIds = model()->open('shoal_plugins');
@@ -57,7 +56,7 @@ class Shoal_App extends Module {
 		$pluginIds->orderBy('priority', 'ASC');
 		
 		foreach($pluginIds->results() as $pluginId){
-			$usedPlugins[$i] = $plugins[$pluginId] . ".plg.php";
+			$usedPlugins[$i] = $plugins[$pluginId['plugin']] . ".plg.php";
 		}
 		$data['plugins'] = $usedPlugins;
 		

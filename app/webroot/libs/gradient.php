@@ -57,7 +57,8 @@
 	                        color-stop(0.50, $color2),
 	                        color-stop(0.75, $color3)
                             );
-						background-repeat:no-repeat;}";
+"//."						background-repeat:no-repeat;
+."}";
             
             return $style;
             

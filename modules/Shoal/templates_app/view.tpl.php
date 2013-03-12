@@ -10,7 +10,7 @@
 					<div class="span9">
 						<p class="muted"><?=$shoal['id']?></p>
 						<div class="span8">
-							<h4><a href="/shoal/view/<?=$shoal['id'] ?>"><?=$shoal['name']?></a></h4>
+							<h4><a href="/shoal/view/<?=$shoal['id']?>"><?=$shoal['name']?></a></h4>
 							<div class="pull-right">
 								<p>Owner: <?=$shoal['owner']?></p>
 							</div>
@@ -25,6 +25,6 @@
 </body>
 </html>
 <?php else: ?>
-No data to display. Join a shoal <a href="/shoal/view/">here</a>!
+	<p>No data to display. Join a shoal <a href="/shoal/view/">here</a>!</p>
 <?php endif; ?>
 

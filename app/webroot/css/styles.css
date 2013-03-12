@@ -8,3 +8,13 @@ body {
   margin: 0 auto;
   max-width: 700px;
 }
+
+div .jumbotron{
+	text-align: center;
+}
+
+hr .alert{
+	background-color: #81F79F; /*Firefox and Opera*/
+	border-color: #81F79F;/*Chrome and Safari*/
+	color: #81F79F;/*IE7+*/
+}

@@ -24,22 +24,51 @@ class Shoal_App extends Module {
 		if($id){
 			$this->viewShoal($id);
 		} else {
-		if(user()->isLoggedIn()){
-			$data = array();
-			$model = model()->open('users');
-			$model->select('shoals');
-			$model->whereLike('username', session()->getUsername('username'));
-			$model->orderBy('id', 'DESC');
-			$data['shoals'] = $model->results();
-			template()->display($data);
-		} else {
-			router()->redirect("index/view");
+			if(user()->isLoggedIn()){
+				$data = array();
+				$model = model()->open('users');
+				$model->select('shoals');
+				$model->whereLike('username', session()->getUsername('username'));
+				$model->orderBy('id', 'DESC');
+				$data['shoals'] = $model->results();
+				template()->display($data);
+			} else {
+				router()->redirect("index/view");
+			}
 		}
 	}
-	}
 	
-	public function viewShoal($id){
+	protected function viewShoal($id){
+		$data = array();
 		template()->setPage("viewShoal");
+		$shoal = model()->open('shoals');
+		$shoal->where('id', $id);
+		$shoal->limit(1);
+		
+		include(MODULES_PATH . DS . 'Shoal' . DS . 'libs' . DS . 'Plugins.php');
+		
+		$plugins = new Plugins;
+		$plugins = $plugins->getPlugins();
+		
+		$usedPlugins = array();
+		$i = 0;
+		$pluginIds = model()->open('shoal_plugins');
+		$pluginIds->where('shoal', $id);
+		$pluginIds->orderBy('priority', 'ASC');
+		
+		foreach($pluginIds->results() as $pluginId){
+			$usedPlugins[$i] = $plugins[$pluginId] . ".plg.php";
+		}
+		$data['plugins'] = $usedPlugins;
+		
+		$pluginData = model()->open('shoal_data');
+		$pluginData->where('shoal', $id);
+		$pluginData = $pluginData->results();
+		$passedPluginData = array();
+		foreach($pluginData as $aData){
+			$passedPluginData[$aData['key']] = $aData['value'];
+		}
+		$data['pluginData'] = $passedPluginData;
 		// Stuff
 		template()->display($data);
 	}

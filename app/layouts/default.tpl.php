@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-	<?php require_once('../webroot/lib/gradient.php'); ?>
+	<?php require_once('/libs/gradient.php'); ?>
 	<style>
 	body<?= Background::getBackground("#2076E0", "#8BADE0", "#FC5BC9", Direction::Top_Left); ?>
 	</style>

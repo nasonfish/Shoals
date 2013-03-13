@@ -1,11 +1,11 @@
-<?php if(isset($data)): ?>
-	<html>
+<html>
 <body>
-	<hr>
 	<div class="container-fluid">
 		<?php
-			if($shoals):
+			$hasShoals = false;
+			if(isset($shoals)):
 				foreach($shoals as $shoal):
+					$hasShoals = true;
 					?>
 					<div class="span9">
 						<p class="muted"><?=$shoal['id']?></p>
@@ -20,11 +20,11 @@
 					<?php
 				endforeach;
 			endif;
+			if (!$hasShoals){
+				print '<p>No data to display. Join a shoal <a href="/shoal/all/">here</a>!</p>';
+			}
 		?>
 	</div>
 </body>
 </html>
-<?php else: ?>
-	<p>No data to display. Join a shoal <a href="/shoal/view/">here</a>!</p>
-<?php endif; ?>
-
+	

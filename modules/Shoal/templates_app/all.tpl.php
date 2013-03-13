@@ -2,6 +2,7 @@
 <body>
 	<hr>
 	<div class="container-fluid">
+		<?php print sml()->printMessage(); ?>
 		<?php
 			if($shoals):
 				foreach($shoals as $shoal):

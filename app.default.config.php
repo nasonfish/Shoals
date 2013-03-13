@@ -16,7 +16,7 @@ class AppConfig implements AppConfigurable {
 	public static function load( $config ) {
 		
 		// application name
-		$config->set('application_name', 'Aspen Framework');
+		$config->set('application_name', 'pufferfi.sh');
 		
 		// the current application master GUID
 		$config->set('application_guid', '8266f8e0-204d-11dd-bd0b-0800200c9a66');
@@ -26,6 +26,12 @@ class AppConfig implements AppConfigurable {
 		
 		// application build
 		$config->set('application_build', '');
+		
+		// session message success class
+		$config->set('sml_message_class_success', 'alert alert-success');
+
+		// session message error class
+		$config->set('sml_message_class_error', 'alert alert-error');
 		
 		return $config;
 		

@@ -26,10 +26,19 @@ class Shoal_App extends Module {
 		} else {
 			if(user()->isLoggedIn()){
 				$data = array();
+				$shoalIds = array();
 				$model = model()->open('users');
-				$model->select('shoals');
-				$model->whereLike('username', session()->getUsername('username'));
-				$model->orderBy('id', 'DESC');
+				$model->where('username', session()->getUsername('username'));
+				$i = 0;
+				$results = $model->results();
+				foreach(explode(',', $results[1]['shoals']) as $result){
+					$shoalIds[$i] = $result;
+					$i++;
+				}
+				$model = model()->open('shoals');
+				foreach($shoalIds as $id){
+					$model->where('id', $id, 'OR');
+				}
 				$data['shoals'] = $model->results();
 				template()->display($data);
 			} else {
@@ -43,11 +52,14 @@ class Shoal_App extends Module {
 		template()->setPage("viewShoal");
 		$shoal = model()->open('shoals');
 		$shoal->where('id', $id);
-		$shoal->limit(1);
-		
+		if(false == $shoal->results()){
+			sml()->say('This shoal does not exist.', false);
+			router()->redirect('shoal/all/');
+		} else {
+			$data['shoaldata'] = $shoal->results();
+		}
 		require(MODULES_PATH . DS . 'Shoal' . DS . 'libs' . DS . 'Plugins.php');
-		
-		$plugins = new Plugins;
+		$plugins = new Plugins();
 		$plugins = $plugins->getPlugins();
 		$usedPlugins = array();
 		$i = 0;
@@ -57,14 +69,14 @@ class Shoal_App extends Module {
 		
 		foreach($pluginIds->results() as $pluginId){
 			$usedPlugins[$i] = $plugins[$pluginId['plugin']] . ".plg.php";
+			$i++;
 		}
 		$data['plugins'] = $usedPlugins;
 		
 		$pluginData = model()->open('shoal_data');
 		$pluginData->where('shoal', $id);
-		$pluginData = $pluginData->results();
 		$passedPluginData = array();
-		foreach($pluginData as $aData){
+		foreach($pluginData->results() as $aData){
 			$passedPluginData[$aData['key']] = $aData['value'];
 		}
 		$data['pluginData'] = $passedPluginData;

@@ -1,0 +1,38 @@
+div.front-boxes div{
+	-webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+/*	width: 100px;
+	height: 50px;
+	padding: 10px;*/
+}
+
+div.front-boxes{
+	-webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+div.front-boxes div p{
+	text-align: center;
+	/*size: 15px;*/
+}
+
+div.front-boxes div h3{
+	text-align: center;
+}
+
+div.home-jumbotron{
+	text-align: center;
+    border-bottom-color: #b5b5b5;
+    border-left-color: #b5b5b5;
+    border-right-color: #b5b5b5;
+    padding: 7px;
+}
+
+div.betweenbox{
+    height: 100%;
+    width: 1px;
+    border-color: #e5e5e5;
+    background-color: #e5e5e5;
+}

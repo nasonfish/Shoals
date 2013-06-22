@@ -1,0 +1,99 @@
+/*body {
+  padding-top: 20px;
+  padding-bottom: 40px;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=0.86602540, M12=0.50000000, M21=-0.50000000, M22=0.86602540,sizingMethod='auto expand')";
+  filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.86602540, M12=0.50000000, M21=-0.50000000, M22=0.86602540,sizingMethod='auto expand');
+  -moz-transform:  matrix(0.86602540, -0.50000000, 0.50000000, 0.86602540, 0, 0);
+  -webkit-transform:  matrix(0.86602540, -0.50000000, 0.50000000, 0.86602540, 0, 0);
+  -o-transform:  matrix(0.86602540, -0.50000000, 0.50000000, 0.86602540, 0, 0);
+}*/
+/* Custom container */
+.container-narrow {
+  margin: 0 auto;
+  max-width: 700px;
+}
+
+body{
+/*    padding-bottom: 50px; /* There's a bar at the bottom, we don't want that to cover our content. */
+}
+
+div .jumbotron{
+	text-align: center;
+}
+
+hr .alert{
+	background-color: #81F79F; /*Firefox and Opera*/
+	border-color: #81F79F;/*Chrome and Safari*/
+	color: #81F79F;/*IE7+*/
+}
+
+ul.dropdown-menu{
+	color: #3a87ad;
+	background-color: #57FEFF;
+	border-color: #bce8f1;
+}
+
+div.top{
+    width: 100%;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-color: #d9d9d9;
+    border-style: solid;
+    background: #c3ffd2;
+    position:fixed;
+    top:0;
+}
+
+#menu-top-dropdown > li > a{
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+#menu-top-dropdown{
+    padding-top: 10px;
+    font-size: 18px;
+    padding-right: 20px; /* 7px */
+}
+
+div.top > div.pull-left{
+    padding-left: 15%;
+}
+
+div.mid, div.side{
+    border-color: #e8faff;
+}
+
+div.vertical-hr{
+    width:2px;
+    height: 150px;
+    background-color: #eaeaea;
+}
+
+#top-separator{
+    height: 80px;
+}
+
+h1, h2, h3, h4, h5, h6{
+    color: #28ce74;
+}
+
+div.footer{
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+    bottom:0;
+    background: #bef8ff;
+    text-align: center;
+    width: 80%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 10px;
+}
+
+div.mid{
+    margin-right: auto;
+    margin-left: auto;
+/*    width: 75%;*/
+}

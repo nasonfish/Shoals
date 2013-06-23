@@ -39,7 +39,7 @@ div.top{
     -webkit-border-radius: 3px;
     border-color: #d9d9d9;
     border-style: solid;
-    background: #c3ffd2;
+    background: #f7ffb0;
     position:fixed;
     top:0;
 }
@@ -75,7 +75,7 @@ div.vertical-hr{
 }
 
 h1, h2, h3, h4, h5, h6{
-    color: #28ce74;
+    color: #5094ce;
 }
 
 div.footer{
@@ -101,4 +101,12 @@ div.centerbox{
     width: 50%;
     margin-left: auto;
     margin-right: auto;
+}
+
+body {
+    background-image:url('/img/background/squairy_light.png');
+}
+
+#title h2{
+    /*color: #5dd7c3;*/
 }

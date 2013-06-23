@@ -25,7 +25,7 @@ ini_set('display_errors', true); ?>
 <body>
 <div class="top">
     <div class="pull-left" id="title">
-        <h2 class="muted"><?=config()->get('application_name');?></h2>
+        <h2><?=config()->get('application_name');?></h2>
     </div>
     <ul class="nav nav-pills pull-right" id="menu-top-dropdown" style="padding-right:30px;">
         <li><a href="/">Home</a></li>
@@ -58,7 +58,7 @@ ini_set('display_errors', true); ?>
     <div class="bottom" style="padding-top:10px;">
 
         <span><?= text('copyright', VERSION); ?></span>
-        <span style="font-size:14px; ">&nbsp;&mdash;&nbsp;Created by nasonfish <!--and puffrfish -->using Aspen Framework.&nbsp;&mdash;&nbsp;</span>
+        <span style="font-size:14px; ">&nbsp;&mdash;&nbsp;Created by nasonfish and puffrfish using Aspen Framework.&nbsp;&mdash;&nbsp;</span>
         <span><a href="http://github.com/botskonet/aspen-framework/"><img src="/img/aspen.png" alt="Aspen Framework"  width=128 height=32></a></span>
     </div>
 </div>

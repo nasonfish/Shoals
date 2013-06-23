@@ -1,11 +1,6 @@
 <?php
 // This will be the page that is shown for a user that goes to http://pufferfi.sh/ and is not logged in.
 ?>
-<html>
-	<head>
-		<link href="/css/welcome.css" rel="stylesheet" />
-	</head>
-	<body>
 		<div class="container">
 			<div class="home-jumbotron">
 				<h2><?=text('index:welcome:tagline'); ?></h2>

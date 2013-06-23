@@ -1,3 +1,4 @@
+<div class="alert alert-warning" style="width:50%;margin-left:auto;margin-right:auto">
 <h2><?php print text('userform:'.ADD_OR_EDIT.'title'); ?></h2>
 
 <?php $form->printErrors(); ?>
@@ -53,3 +54,4 @@
 		<input type="submit" name="submit" value="<?php print text('userform:'.ADD_OR_EDIT.'button'); ?>" />
 	</fieldset>
 </form>
+</div>

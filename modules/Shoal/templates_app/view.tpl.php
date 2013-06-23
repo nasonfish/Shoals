@@ -7,11 +7,9 @@
 					<div class="span9">
 						<p class="muted"><?=$shoal['id']?></p>
 						<h4><a href="/shoal/view/<?=$shoal['id']?>"><?=$shoal['name']?></a></h4>
-						<div class="pull-right">
-							<p>Owner: <?=$shoal['owner']?></p>
-						</div>
 						<p><?=$shoal['description']?></p>
                         <span class="muted">Public: <?=$shoal['public'] === 1 ? "yes" : "no"?></span>
+                        <span class="muted">Date Created: <?=$shoal['timestamp']; ?></span>
 					</div>
 					<?php
 				endforeach;

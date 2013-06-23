@@ -8,6 +8,7 @@ ini_set('display_errors', true); ?>
     <?php $this->add_resource( new Aspen_Css('/css/bootstrap.css') ); ?>
     <?php $this->add_resource( new Aspen_Css('/css/styles.css') ); ?>
     <?php $this->add_resource( new Aspen_Css('/css/bootstrap-responsive.css') ); ?>
+    <?php $this->add_resource( new Aspen_Javascript('/js/bootstrap.js') ); ?>
     <?php $this->loadModuleHeader(); ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,7 +37,7 @@ ini_set('display_errors', true); ?>
             <li><a href="/shoal/add/">Create a shoal</a></li>
             <li class="dropdown">
                 <a class="dropdown-toggle" id="dropdown-user" role="button" data-toggle="dropdown" href="#"><?= session()->getUsername('username') ?>  <b class="caret"></b></a>
-                <ul class="dropdown-menu" id="user-menu" role="menu" aria-labelledby="dropdown-user">
+                <ul class="dropdown-menu" id="user-menu" role="menu">
                     <li><a href="/users/logout/"><i class="icon-off"></i> Log Out</a></li>
                     <li><a href="/users/settings/"><i class="icon-wrench"></i> Your Settings</a></li>
 <!--				<li><a href="#"><i class="icon-trash"></i> Delete</a></li>

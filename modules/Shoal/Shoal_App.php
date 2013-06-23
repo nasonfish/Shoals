@@ -26,24 +26,17 @@ class Shoal_App extends Module {
 		} else {
 			if(user()->isLoggedIn()){
 				$data = array();
-				$shoalIds = array();
-				$model = model()->open('users');
-				$model->where('username', session()->getUsername('username'));
-				$i = 0;
-				$results = $model->results();
-				foreach(explode(',', $results[1]['shoals']) as $result){
-					$shoalIds[$i] = $result;
-					$i++;
-				}
-				$model = model()->open('shoals');
-				foreach($shoalIds as $id){
-					$model->where('id', $id, 'OR');
-				}
+				$model = model()->open('user_shoals');
+                $model->leftJoin('shoals', 'shoal', 'id');
+				$model->where('user', session()->getInt('user_id'));
+                //$model->where('shoals.public', 1); // It's the shoals they're already in.
+                $model->select(array('user_shoals.rank', 'shoals.id', 'shoals.name', 'shoals.description', 'shoals.public'));
 				$data['shoals'] = $model->results();
                 $data['hasShoals'] = !empty($data['shoals']);
 				template()->display($data);
 			} else {
-				router()->redirect("index/view");
+                sml()->say("You can't view your shoals if you don't have an account, silly!", false);
+				router()->redirect("users/login");
 			}
 		}
 	}
@@ -75,39 +68,27 @@ class Shoal_App extends Module {
 			$data['shoaldata'] = $shoal->results();
 		}
 		require(MODULES_PATH . DS . 'Shoal' . DS . 'libs' . DS . 'Plugins.php');
-		$plugins = new Plugins();
-		$plugins = $plugins->getPlugins();
-		$leftPlugins = array();
-        $rightPlugins = array();
-		$pluginIds = model()->open('shoal_plugins');
-		$pluginIds->where('shoal', $id);
-		$pluginIds->orderBy('priority', 'ASC');
+		$pluginsLib = new Plugins();
+		$pluginList = $pluginsLib->getPlugins();
+        $plugins = array();
+		$model = model()->open('shoal_plugins');
+		$model->where('shoal', $id);
+		$model->orderBy('priority', 'ASC');
 
-		foreach($pluginIds->results() as $pluginId){
-            if($pluginId['left'] === 1){
-			    $leftPlugins[] = $plugins[$pluginId['plugin']]['name'];
-            } else {
-                $rightPlugins[] = $plugins[$pluginId['plugin']]['name'];
+		foreach($model->results() as $plugin){
+			$plugins[$plugin['left'] === 1 ? 'left' : 'right'][] = $pluginList[$plugin['plugin']]['name'];
+        }
+
+        foreach($plugins as $side){
+            foreach($side as $id => $name){
+                require(APPLICATION_PATH . DS . 'app' . DS . 'webroot' . DS . 'libs' . DS . 'plugins' . DS . $name . ".plg.php");
+                $classname = "Plugin_" . $name;
+                $plugin = new $classname;
+                $plugins[$side][$id] = $plugin;
             }
         }
 
-        // This kinda sucks. I shouldn't be doing this for both sides.
-
-        foreach($rightPlugins as $id => $name){
-            require(APPLICATION_PATH . DS . 'app' . DS . 'webroot' . DS . 'libs' . DS . 'plugins' . DS . $name . ".plg.php");
-            $classname = "Plugin_" . $name;
-            $plugin = new $classname;
-            $rightPlugins[$id] = $plugin;
-        }
-        foreach($leftPlugins as $id => $name){
-            require(APPLICATION_PATH . DS . 'app' . DS . 'webroot' . DS . 'libs' . DS . 'plugins' . DS . $name . ".plg.php");
-            $classname = "Plugin_" . $name;
-            $plugin = new $classname;
-            $leftPlugins[$id] = $plugin;
-        }
-
-		$data['rPlugins'] = $rightPlugins;
-		$data['lPlugins'] = $leftPlugins;
+		$data['plugins'] = $plugins;
 		$pluginData = model()->open('shoal_data');
 		$pluginData->where('shoal', $id);
 		$passedPluginData = array();

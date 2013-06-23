@@ -22,6 +22,7 @@ class Index_App extends Module {
 	 */
 	public function view(){
 		if(!user()->isLoggedIn()){
+            template()->add_resource( new Aspen_Css('/css/welcome.css') );
 			template()->setPage('welcome');
 		}
 		template()->display();

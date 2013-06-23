@@ -1,3 +1,4 @@
+<div class="alert alert-warning" style="width:50%;margin-left:auto;margin-right:auto">
 <h2><?php print text('myaccount:title'); ?></h2>
 <?php print $form->printErrors(); ?>
 <?php print sml()->printMessage(); ?>
@@ -26,3 +27,4 @@
 		</ol>
 	</fieldset>
 </form>
+</div>

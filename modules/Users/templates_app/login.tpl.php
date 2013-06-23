@@ -1,3 +1,4 @@
+<div class="alert alert-warning" style="width:50%;margin-left:auto;margin-right:auto">
 <h2><?php print text('login:title'); ?></h2>
 <?php print sml()->printMessage(); ?>
 <form action="<?= Url::path('authenticate')->action(); ?>" method="post">
@@ -18,3 +19,4 @@
 		</ol>
 	</fieldset>
 </form>
+</div>

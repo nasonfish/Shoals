@@ -1,3 +1,4 @@
+<div class="alert alert-warning" style="width:50%;margin-left:auto;margin-right:auto">
 <h2><?= text('signup:title'); ?></h2>
 <?= sml()->printMessage(); ?>
 <?= $form->printErrors(); ?>
@@ -38,3 +39,4 @@
 		</ol>
 	</fieldset>
 </form>
+ </div>

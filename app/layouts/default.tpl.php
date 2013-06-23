@@ -27,7 +27,7 @@ ini_set('display_errors', true); ?>
     <div class="pull-left" id="title">
         <h2 class="muted"><?=config()->get('application_name');?></h2>
     </div>
-    <ul class="nav nav-pills pull-right" id="menu-top-dropdown">
+    <ul class="nav nav-pills pull-right" id="menu-top-dropdown" style="padding-right:30px;">
         <li><a href="/">Home</a></li>
         <?php if (!user()->isLoggedIn()):?>
             <li><a href="/users/login/">Log in</a></li>
@@ -38,8 +38,8 @@ ini_set('display_errors', true); ?>
             <li class="dropdown">
                 <a class="dropdown-toggle" id="dropdown-user" role="button" data-toggle="dropdown" href="#"><?= session()->getUsername('username') ?>  <b class="caret"></b></a>
                 <ul class="dropdown-menu" id="user-menu" role="menu">
-                    <li><a href="/users/logout/"><i class="icon-off"></i> Log Out</a></li>
-                    <li><a href="/users/settings/"><i class="icon-wrench"></i> Your Settings</a></li>
+                    <li><a href="<?=Url::path('users/logout');?>"><i class="icon-off"></i> Log Out</a></li>
+                    <li><a href="<?=Url::path('users/my_account');?>"><i class="icon-wrench"></i> Settings</a></li>
 <!--				<li><a href="#"><i class="icon-trash"></i> Delete</a></li>
                     <li><a href="#"><i class="icon-ban-circle"></i> Ban</a></li>
                     <li class="divider"></li>

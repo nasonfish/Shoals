@@ -1,10 +1,12 @@
+<div class="alert alert-warning centerbox">
+
 <h2><?php print text('shoalform:'.ADD_OR_EDIT.'title'); ?></h2>
 
 <?php $form->printErrors(); ?>
 <?php print sml()->printMessage(); ?>
 
 <?php if(IS_EDIT_PAGE){ ?>
-    <p><a href="<?php print Url::path('shoal/delete', array('id' => $form->cv('id'))); ?>" onclick="return confirm('<?php print text('shoalform:delete_warn'); ?>')"><?php print text('shoalform:delete_link'); ?></a></p>
+    <p><a href="<?php print Url::path()->action(); ?>" onclick="return confirm('<?php print text('shoalform:delete_warn'); ?>')"><?php print text('shoalform:delete_link'); ?></a></p>
 <?php } ?>
 <form method="post" action="<?= Url::path()->action(); ?>">
     <fieldset>
@@ -32,3 +34,4 @@
         <input type="submit" name="submit" value="<?php print text('shoalform:'.ADD_OR_EDIT.'button'); ?>" />
     </fieldset>
 </form>
+</div>

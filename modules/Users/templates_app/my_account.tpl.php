@@ -1,8 +1,8 @@
-<div class="alert alert-warning" style="width:50%;margin-left:auto;margin-right:auto">
+<div class="alert alert-warning centerbox">
 <h2><?php print text('myaccount:title'); ?></h2>
 <?php print $form->printErrors(); ?>
 <?php print sml()->printMessage(); ?>
-<form action="<?php print $this->url() ?>" method="post">
+<form action="<?php print Url::path(); ?>" method="post">
 	<input id="allow_login_hidden" name="allow_login" type="hidden" value="<?php print $form->cv('allow_login') ?>" />
 	<fieldset>
 		<p class="notice"><?php print text('myaccount:help'); ?></p>

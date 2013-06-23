@@ -1,3 +1,4 @@
+<div class="alert alert-warning centerbox">
 <?php print sml()->printMessage(); ?>
 	<div class="container-fluid">
 		<?php
@@ -19,4 +20,4 @@
 			}
 		?>
 	</div>
-	
+</div>

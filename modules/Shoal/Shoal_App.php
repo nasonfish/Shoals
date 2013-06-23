@@ -58,7 +58,8 @@ class Shoal_App extends Module {
 	 */
 	protected function viewShoal($id){
 		$data = array();
-		template()->setPage("viewShoal");
+        template()->add_resource( new Aspen_Css('/css/shoal.css') );
+        template()->setPage("viewShoal");
 		$shoal = model()->open('shoals');
 		$shoal->where('id', $id);
 		if(false == $shoal->results()){
@@ -123,7 +124,10 @@ class Shoal_App extends Module {
 		
 		// process the form if submitted
 		if($form->isSubmitted()){
-			$form->setCurrentValue('owner', session()->getUsername('username'));
+			//$form->setCurrentValue('owner', session()->getUsername('username')); TODO add them as owner in the ranks.
+            if(!$id){
+                $form->setCurrentValue('created', "CURRENT_TIMESTAMP");
+            }
 			if($form->save()){
                 sml()->say("Successfully saved your shoal's data.", true);
                 router()->redirect('shoal/view');
@@ -143,6 +147,7 @@ class Shoal_App extends Module {
 		$model->where('public', 1);
 		$model->orderBy('id', 'DESC');
 		$data['shoals'] = $model->results();
+        template()->add_resource( new Aspen_Css( '/css/shoal/shoal-all.css' ));
 		template()->display($data);
 	}
 

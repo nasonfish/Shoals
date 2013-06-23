@@ -1,3 +1,4 @@
+<div class="alert alert-warning centerbox">
 <h2><?php print text('userlist:title'); ?></h2>
 <?php print sml()->printMessage(); ?>
 <table cellspacing="0">
@@ -23,3 +24,4 @@
 		<?php endif; ?>
 	</tbody>
 </table>
+</div>

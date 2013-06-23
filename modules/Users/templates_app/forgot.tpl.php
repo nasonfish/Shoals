@@ -1,4 +1,4 @@
-<div class="alert alert-warning" style="width:50%;margin-left:auto;margin-right:auto">
+<div class="alert alert-warning centerbox">
 <h2><?php print text('forgot:title'); ?></h2>
 <?php print $form->printErrors(); ?>
 <?php print sml()->printMessage(); ?>
@@ -11,7 +11,7 @@
 			</li>
 			<li>
 				<input type="submit" name="submit" id="submit" value="<?php print text('forgot:button'); ?>" />
-				<?php print $this->link(text('forgot:login'), 'login'); ?>
+				<?php print Link::path(text('forgot:login'), 'login'); ?>
 			</li>
 			</ol>
 	</fieldset>

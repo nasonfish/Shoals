@@ -7,7 +7,7 @@
         }
         ?>
     </div>
-    <div class="span5 alert alert-success">
+    <div class="span6 alert midshoalbox">
 
     </div>
     <div class="span3 alert alert-info">

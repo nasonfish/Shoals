@@ -28,9 +28,8 @@ hr .alert{
 }
 
 ul.dropdown-menu{
-	color: #3a87ad;
-	background-color: #57FEFF;
-	border-color: #bce8f1;
+	background-color: #e8ffec;
+	border-color: #e4fcff;
 }
 
 div.top{
@@ -96,4 +95,10 @@ div.mid{
     margin-right: auto;
     margin-left: auto;
 /*    width: 75%;*/
+}
+
+div.centerbox{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
 }

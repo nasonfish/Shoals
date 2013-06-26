@@ -58,46 +58,44 @@ class Shoal_App extends Module {
 	 */
 	protected function viewShoal($id){
 		$data = array();
-        template()->add_resource( new Aspen_Css('/css/shoal.css') );
+        template()->add_resource( new Aspen_Css('/css/shoal/shoal.css') );
         template()->setPage("viewShoal");
 		$shoal = model()->open('shoals');
 		$shoal->where('id', $id);
 		if(false == $shoal->results()){
 			sml()->say('That shoal does not exist.', false);
-			router()->redirect('shoal/all/');
+			router()->redirect('shoal/all');
 		} else {
-			$data['shoaldata'] = $shoal->results();
+			$data['shoalData'] = $shoal->results();
 		}
+        $ranks = model()->open('user_shoals');
+        $ranks->where('shoal', $id);
+        $ranks->where('user', session()->getInt('user_id'));
+        $ranks->leftJoin('shoal_ranks', 'rank', 'name');
+        $data['rank'] = $ranks->results();
 		require(MODULES_PATH . DS . 'Shoal' . DS . 'libs' . DS . 'Plugins.php');
-		$pluginsLib = new Plugins();
-		$pluginList = $pluginsLib->getPlugins();
+		$pluginList = getPlugins();
         $plugins = array();
 		$model = model()->open('shoal_plugins');
-		$model->where('shoal', $id);
+        $model->where('shoal', $id);
 		$model->orderBy('priority', 'ASC');
-
 		foreach($model->results() as $plugin){
-			$plugins[$plugin['left'] === 1 ? 'left' : 'right'][] = $pluginList[$plugin['plugin']]['name'];
+			$plugins[$plugin['left'] === 1 ? 'left' : 'right'][$plugin[$id]] = $pluginList[$plugin['plugin']]['class'];
         }
-
-        foreach($plugins as $side){
-            foreach($side as $id => $name){
-                require(APPLICATION_PATH . DS . 'app' . DS . 'webroot' . DS . 'libs' . DS . 'plugins' . DS . $name . ".plg.php");
-                $classname = "Plugin_" . $name;
-                $plugin = new $classname;
-                $plugins[$side][$id] = $plugin;
-            }
-        }
-
 		$data['plugins'] = $plugins;
 		$pluginData = model()->open('shoal_data');
 		$pluginData->where('shoal', $id);
 		$passedPluginData = array();
 		foreach($pluginData->results() as $aData){
-			$passedPluginData[$aData['key']] = $aData['value'];
+			$passedPluginData[$aData['id']][$aData['key']] = $aData['value'];
+            # $pluginData = array(id => array('key' => 'value'))
 		}
 		$data['pluginData'] = $passedPluginData;
-		// Stuff
+		$inShoal = model()->open('user_shoals');
+        $inShoal->select('id');
+        $inShoal->where('user',  session()->getInt('user_id'));
+        $data['inShoal'] = $inShoal->results();
+        $data['id'] = $id;
 		template()->display($data);
 	}
 

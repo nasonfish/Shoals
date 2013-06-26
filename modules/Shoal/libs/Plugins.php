@@ -1,7 +1,5 @@
 <?php
 
-class Plugins{
-	
 	/**
 	 * Get all the plugins
 	 * 
@@ -14,21 +12,23 @@ class Plugins{
 	 * 
 	 * Optionally, you may add more array keys for variables that the user has to enter.
 	 * for example:
-	 * 'name' => 'Enter your name'
+	 * 'key' => 'Enter your key'
 	 * 
-	 * This will be passed into your plugin file as $data['name'].
+	 * This will be passed into your plugin file as $key.
 	 * 
-	 * @return array(int, array(str, str)) plugins
+	 * @return array(int, array()) plugins
 	 */
-	public function getPlugins(){
-		return array(
-			array(
-				'name' => 'minecraft',
-				'info' => 'Shows Data on a minecraft server, including how many people are on. You must set enable-query=true and enable-rcon=true in your server.properties for this to work.',
-				'ip' => 'Minecraft Server IP'
-				)
-		);
-	}
-	
-}
+    function getPlugins(){
+        spl_autoload_register(function ($className){
+            include MODULES_PATH . DS . 'Shoal' . DS . 'libs' . DS . 'plugins' . DS . $className . '.plg.php';
+        });
+        return array(
+            0 => array(
+                'name' => 'Minecraft',
+                'info' => 'Shows Data on a minecraft server, including how many people are on. You must set enable-query=true and enable-rcon=true in your server.properties for this to work.',
+                'class' => new minecraft,
+                'ip' => 'Minecraft Server IP'
+            )
+        );
+    }
 ?>

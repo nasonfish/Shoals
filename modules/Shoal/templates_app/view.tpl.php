@@ -1,6 +1,8 @@
 <div class="alert alert-warning centerbox">
 <?php print sml()->printMessage(); ?>
 	<div class="container-fluid">
+        <h4>Shoals You've Joined</h4>
+        <hr/>
 		<?php
 			if(isset($shoals)):
 				foreach($shoals as $shoal):

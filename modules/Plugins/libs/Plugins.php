@@ -20,14 +20,16 @@
 	 */
     function getPlugins(){
         spl_autoload_register(function ($className){
-            include MODULES_PATH . DS . 'Shoal' . DS . 'libs' . DS . 'plugins' . DS . $className . '.plg.php';
+            include MODULES_PATH . DS . 'Plugins' . DS . 'libs' . DS . 'plugins' . DS . $className . '.plg.php';
         });
         return array(
             0 => array(
                 'name' => 'Minecraft',
-                'info' => 'Shows Data on a minecraft server, including how many people are on. You must set enable-query=true and enable-rcon=true in your server.properties for this to work.',
+                'info' => 'Shows Data on a Minecraft server, including how many people are on. You must set enable-query=true and enable-rcon=true in your server.properties for this to work.',
                 'class' => new minecraft,
-                'ip' => 'Minecraft Server IP'
+                'extra' => array(
+                    'ip' => 'Minecraft Server IP'
+                )
             )
         );
     }

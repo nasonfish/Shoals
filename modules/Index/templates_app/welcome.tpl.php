@@ -34,7 +34,7 @@
             <p>Your shoal will allow your community to be more linked together and provide a place for your "shoalmates" to communicate to keep your community closer.</p>
             <hr/>
             <h3>What is a 'shoal' anyway?</h3>
-            <p>A shoal is a group of fish that stick together, but do not move together like a school does. Kind of like a fish community. (<strong>Quote from puffrfish on IRC.</strong>)</p>
+            <p>A shoal is a group of fish that stick together, but do not move together like a school does. Kind of like a fish community. (<strong>Slightly modified quote from puffrfish on IRC.</strong>)</p>
 			<p>Shoaling fish are not necessarily of the same species or move in a coordinated manner, but they are a tight-knit community that sticks together for a common goal.
             <p>puffrfish and I really like fish, and in the past, we've created some fish-themed stuff, so naming this project "Shoals" really suits us well.</p>
 			<p>We hope Shoals can provide you with the same strong connection between your community members, and will be keeping community needs in mind throughout the development of the project.

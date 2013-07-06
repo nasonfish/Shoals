@@ -40,14 +40,16 @@ class Shoal_App extends Module {
 			}
 		}
 	}
-	
-	/**
-	 * Modify plugins for a shoal.
-	 * @param type $id Shoal id.
-	 */
-	public function plugins($id){
-		
-	}
+
+
+
+    /**
+     * Modify plugins for a shoal.
+     * @param type $id Shoal id.
+     */
+    public function plugins($id){
+
+    }
 	
 	/**
 	 * View a Shoal. Typically people
@@ -73,7 +75,7 @@ class Shoal_App extends Module {
         $ranks->where('user', session()->getInt('user_id'));
         $ranks->leftJoin('shoal_ranks', 'rank', 'name');
         $data['rank'] = $ranks->results();
-		require(MODULES_PATH . DS . 'Shoal' . DS . 'libs' . DS . 'Plugins.php');
+		require(MODULES_PATH . DS . 'Plugins' . DS . 'libs' . DS . 'Plugins.php');
 		$pluginList = getPlugins();
         $plugins = array();
 		$model = model()->open('shoal_plugins');
@@ -156,5 +158,6 @@ class Shoal_App extends Module {
     public function delete($id = false){
 
     }
+
 }
 ?>

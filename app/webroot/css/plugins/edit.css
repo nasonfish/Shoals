@@ -1,7 +1,3 @@
-div.plugin-list{
-
-}
-
-ul.plugins{
-
+div.plugin-form-add{
+    display: none;
 }

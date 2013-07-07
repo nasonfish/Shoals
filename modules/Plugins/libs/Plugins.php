@@ -30,6 +30,15 @@
                 'extra' => array(
                     'ip' => 'Minecraft Server IP'
                 )
+            ),
+            1 => array(
+                'name' => "Header",
+                'info' => "Display a header message on your shoal.",
+                'class' => new header,
+                'extra' => array(
+                    'title' => 'The title of the header',
+                    'text' => 'The text content of the header'
+                )
             )
         );
     }

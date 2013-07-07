@@ -30,6 +30,7 @@ class Plugins_App extends Module {
         $data['id'] = $id;
         template()->addJsVar('SHOAL_ID', $id);
         template()->add_resource(new Aspen_Javascript('/js/plugins/edit.js'));
+        template()->add_resource(new Aspen_Css('/css/plugins/edit.css'));
         $model = model()->open('shoal_plugins');
         $model->leftJoin('shoal_data as data', 'shoal = shoal_plugins.shoal AND data.priority', 'priority');
         // TODO get current plugins ^

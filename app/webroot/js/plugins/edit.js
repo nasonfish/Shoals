@@ -25,3 +25,17 @@ $('.submit-add-plugin').click(function(){
     var left = $('#plugin-side').val();
 
 });
+
+function submit_form(form_id){
+
+}
+
+var form_displayed = false;
+
+function load_plugin_form(form_id){
+    if(form_displayed && form_displayed != form_id){
+        $('#' + form_displayed).slideUp();
+    }
+    $('#' + form_id).slideToggle();
+    form_displayed = form_id;
+}

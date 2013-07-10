@@ -23,13 +23,15 @@
                     <label for="plugin-<?=$id?>-side-select">Which side of the shoal should the plugin be on?</label>
                     <input type="radio" name="side-select" value="0" id="plugin-<?=$id?>-side-select" checked/>Left&nbsp;&nbsp;
                     <input type="radio" name="side-select" value="1" id="plugin-<?=$id?>-side-select"/>Right
-                    <?php foreach($plugin['extra'] as $name => $field): ?>
-                        <br/><br/>
-                        <label for="plugin-<?=$id.'-'.$name?>"><?=$field?></label>
-                        <input type="text" name="plugin-<?=$name?>" id="plugin-<?=$id.'-'.$name?>"/>
-                    <?php endforeach; ?>
+                    <div class="extra-fields">
+                        <?php foreach($plugin['extra'] as $name => $field): ?>
+                            <br/><br/>
+                            <label for="plugin-<?=$id.'-'.$name?>"><?=$field?></label>
+                            <input type="text" name="<?=$name?>" id="plugin-<?=$id.'-'.$name?>"/>
+                        <?php endforeach; ?>
+                    </div>
                     <label for="plugin-<?=$id?>-submit">Add this plugin!</label>
-                    <input type="submit" name="submit" id="plugin-<?=$id?>-submit" onclick="submit_form('ajax-plugin-add-<?=$id?>');"/>
+                    <button type="button" id="plugin-<?=$id?>-submit" onclick="submit_add_form('ajax-plugin-add-<?=$id?>', '<?=$id?>'); return false;">Add!</button>
                 </form>
             </div>
         <?php endforeach; ?>

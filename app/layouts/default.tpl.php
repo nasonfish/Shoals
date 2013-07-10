@@ -4,7 +4,6 @@
 ini_set('display_errors', true); ?>
 <head>
     <title><?= $this->page_title(); ?></title>
-    <?php $this->add_resource( new Aspen_Javascript('http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js') ); ?>
     <?php $this->add_resource( new Aspen_Css('/css/bootstrap.css') ); ?>
     <?php $this->add_resource( new Aspen_Css('/css/styles.css') ); ?>
     <?php $this->add_resource( new Aspen_Css('/css/bootstrap-responsive.css') ); ?>
@@ -64,6 +63,7 @@ ini_set('display_errors', true); ?>
 </div>
 </body>
 <footer>
+    <?= new Aspen_Javascript('http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'); // some things depend on jQuery.?>
     <?php $this->loadModuleFooter(); ?>
     <?= $this->htmlHide(VERSION_COMPLETE); ?>
 </footer>

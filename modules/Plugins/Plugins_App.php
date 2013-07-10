@@ -43,16 +43,13 @@ class Plugins_App extends Module {
      * from inside of the edit() function/page.
      */
     public function ajax_submit(){
-        $form = new Form('shoal_plugins');
-        if($form->isSubmitted()){
-            if($form->save()):
-                print '<div class="alert alert-success">
+        print '<pre>$_POST is '; var_dump($_POST);
+        print "\n" . '$_GET is '; var_dump($_GET);
+        print "\n" . '$_REQUEST is '; var_dump($_REQUEST);
+                print '</pre><div class="alert alert-success">
                 <p>Plugin saved successfully</p>
                 </div>';
-            return;
-            endif;
-            $form->printErrors();
-        }
+//            return;
         print '<div class="alert alert-error">
             <p>Plugin form not submitted</p>
         </div>';

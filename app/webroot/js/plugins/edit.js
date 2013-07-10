@@ -26,8 +26,23 @@ $('.submit-add-plugin').click(function(){
 
 });
 
-function submit_form(form_id){
-
+function submit_add_form(form_id, plugin_id){
+    // SHOAL_ID
+    form_id = '#' + form_id;
+    var side = $('input[name=side-select]', form_id);//.val(); -  on success, we want the entire object to
+    var priority = $('input[name=priority]', form_id);//.val();   be in the variable so we can clear it.
+    var extras_array = {};
+    $('input', form_id + " .extra-fields").each(function(){
+        extras_array[$(this).attr("name")] = $(this).val();
+    });
+    $('#plugin-add-status').load(
+        INTERFACE_URL + "/plugins/ajax_submit/",
+        {
+            'side': side.val(),
+            'priority': priority.val(),
+            'extras': extras_array
+        }
+    );
 }
 
 var form_displayed = false;

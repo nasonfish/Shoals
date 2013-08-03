@@ -38,9 +38,9 @@ function submit_add_form(form_id, plugin_id){
     $('#plugin-add-status').load(
         INTERFACE_URL + "/plugins/ajax_submit/",
         {
-            'side': side.val(),
-            'priority': priority.val(),
-            'extras': extras_array
+            side: side.val(),
+            priority: priority.val(),
+            extras: extras_array
         }
     );
 }

@@ -57,8 +57,7 @@ ini_set('display_errors', true); ?>
     <div class="bottom" style="padding-top:10px;">
 
         <span><?= text('copyright', VERSION); ?></span>
-        <span style="font-size:14px; ">&nbsp;&mdash;&nbsp;Created by nasonfish and puffrfish using Aspen Framework.&nbsp;&mdash;&nbsp;</span>
-        <span><a href="http://github.com/botskonet/aspen-framework/"><img src="/img/aspen.png" alt="Aspen Framework"  width=128 height=32></a></span>
+        <span style="font-size:14px; ">&nbsp;&mdash;&nbsp;Stuff can go here. Or something.&nbsp;&mdash;&nbsp;</span>
     </div>
 </div>
 </body>

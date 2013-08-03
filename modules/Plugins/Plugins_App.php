@@ -46,6 +46,9 @@ class Plugins_App extends Module {
         print '<pre>$_POST is '; var_dump($_POST);
         print "\n" . '$_GET is '; var_dump($_GET);
         print "\n" . '$_REQUEST is '; var_dump($_REQUEST);
+        print post()->getRaw("extras");
+        print post()->getRaw("side");
+        print post()->getRaw("priority");
                 print '</pre><div class="alert alert-success">
                 <p>Plugin saved successfully</p>
                 </div>';
